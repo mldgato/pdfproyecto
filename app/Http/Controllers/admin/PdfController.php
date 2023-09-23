@@ -22,7 +22,7 @@ class PdfController extends Controller
         $user = Auth::user();
         $this->fpdf->SetFont('Arial', 'B', 15);
         $this->fpdf->AddPage("L", ['100', '100']);
-        $this->fpdf->Text(10, 10, "Hello World!". $user->name);
+        $this->fpdf->Text(10, 10, "Hello World! ". iconv('UTF-8', 'ISO-8859-1//TRANSLIT', $user->name));
 
         $this->fpdf->Output();
 
